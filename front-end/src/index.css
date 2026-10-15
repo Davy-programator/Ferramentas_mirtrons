@@ -1,0 +1,122 @@
+/* Reset básico para estilo minimalista */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+  background-color: #fefefe;
+  color: #1a1a1a;
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-color: #ffffff;
+    background-image: url("./assets/fundo.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Posicionamento elegante da logo */
+.header {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  width: 100px;
+  height: 100px;
+}
+
+.logo-ifms {
+  height: 50px; /* Ajuste a altura conforme o arquivo real da logo */
+  object-fit: contain;
+  opacity: 0.9;
+  transition: opacity 0.3s;
+}
+
+.logo-ifms:hover {
+  opacity: 1;
+}
+
+/* Centralização absoluta do conteúdo principal */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  text-align: center;
+  letter-spacing: -0.5px;
+  color: #222;
+}
+
+/* Caixa de texto e formulário */
+.search-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.input-rna {
+  width: 100%;
+  padding: 1.2rem;
+  font-size: 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #fafafa;
+  resize: vertical;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.input-rna:focus {
+  border-color: #2f855a; /* Tom verde discreto puxando para a identidade do IFMS */
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(47, 133, 90, 0.1);
+}
+
+.btn-submit {
+  padding: 0.8rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #ffffff;
+  background-color: #2f855a; /* Verde institucional suave */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-submit:hover {
+  background-color: #226442;
+}
+
+.btn-submit:disabled {
+  background-color: #a0aec0;
+  cursor: not-allowed;
+}
+
+.result-box {
+  margin-top: 2rem;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: #f7fafc;
+  width: 100%;
+  border: 1px solid #edf2f7;
+}
