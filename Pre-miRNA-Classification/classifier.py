@@ -10,7 +10,11 @@ import numpy as np
 from keras.models import model_from_json
 
 
+<<<<<<< HEAD:Pre-miRNA-Classification/classifier.py
 json_file = open('./original_model/model.json', 'r')
+=======
+json_file = open('./Pre-miRNA-Classification-/original_model/model.json','r')
+>>>>>>> 2eb8398da1b90f32ab681c0e44849c09f043ca86:Pre-miRNA-Classification-master/classifier.py
 loaded_model_json = json_file.read()
 json_file.close()
 loaded_model = model_from_json(loaded_model_json)

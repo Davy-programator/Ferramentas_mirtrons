@@ -1,0 +1,31 @@
+# 1. Base limpa do Ubuntu (Isola o ambiente operacional)
+FROM ubuntu:22.04
+
+ENV PATH="/root/miniconda3/bin:${PATH}"
+ENV DEBIAN_FRONTEND=noninteractive
+
+# 2. Instala ferramentas essenciais do Linux
+RUN apt-get update && apt-get install -y --no-install-recommends wget \
+    && rm -rf /var/lib/apt/lists/*
+
+# 3. CORREÇÃO: Baixa o instalador REAL do Miniconda (o link anterior quebrava o build)
+RUN wget https://anaconda.com -O miniconda.sh \
+    && mkdir /root/.conda \
+    && bash miniconda.sh -b \
+    && rm -f miniconda.sh \
+    && conda clean --all --yes
+
+# 4. Define o diretório de trabalho padrão dentro do container
+WORKDIR /ferramentas
+
+
+COPY cnnmirtronpred_req.yml premiRNAClassification_req.yml ./
+COPY cnnmirtronpred/ ./cnnmirtronpred/
+COPY Pre-miRNA-Classification/ ./Pre-miRNA-Classification/
+
+
+RUN conda env create -f cnnmirtronpred_req.yml \
+    && conda env create -f premiRNAClassification_req.yml \
+    && conda clean --all --yes
+
+ENTRYPOINT ["conda", "run", "--no-capture-output"]
